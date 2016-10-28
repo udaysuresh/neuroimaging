@@ -11,7 +11,9 @@ import nipype.interfaces.fsl as fsl
 #create stand-alone node 
 sample_bet = pe.Node(interface=fsl.BET(), name = 'bet')
 sample_bet.inputs.in_file = 'file.nii.gz'
+#try hardcoding with actual .nii from within directory 
 sample_bet.inputs.frac = 0.7
+#do I need an outfile here or will it automatically spit out in the same directory 
 sample_bet.inputs.out_file = 'file.nii.gz'
 #sample_bet.run() 
 #not going to run from here bc this is node, not instance 
@@ -19,9 +21,11 @@ sample_bet.inputs.out_file = 'file.nii.gz'
 
 # In[ ]:
 
-freeview -v file.nii.gz \ file_bet.nii.gz:colormap=jet
-#check results of the execution 
+freeview -v file.nii.gz 
 
+#if this initialization does not work, try the one below 
+#file_bet.nii.gz:colormap=jet
+#check results of the execution  
 
 # In[ ]:
 
