@@ -29,6 +29,7 @@ freeview -v file.nii.gz
 
 # In[ ]:
 
+#redefine this as a NODE, not as an interface -- which it is right now
 sample_fast = fsl.FAST()
 #maybe this in_file shouldn't be defined if it's defined in the workflow connection?
 sample_fast.inputs.in_files = results.outputs.out_file
