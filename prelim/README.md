@@ -1,3 +1,3 @@
 Visualization of node connection in this workflow
 
--> <img src="graph.dot.png"> <-
+-><img src="graph.dot.png"><-
