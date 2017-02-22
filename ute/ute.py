@@ -29,9 +29,15 @@ class Ute(PBRBaseInterface):
     # and connect to the this interfaces input called "foo"
 
     def _run_interface_pbr(self, runtime):
-        #eventually, a nipype workflow will run in here, but for now
-        print(self.inputs)
-        return runtime
+      #insert workflow here:
+      import nipype.interfaces.fsl as fsl
+      import nipype.pipeline.engine as pe
+      import nipype.interfaces.freesurfer as fs
+      import nipype.interfaces.io as nio
+
+      """print(self.inputs)
+      return runtime""" 
+      #this was used for checking if the workflow was being triggered and run
 
 
     def _get_output_folder(self):
