@@ -34,10 +34,28 @@ class Ute(PBRBaseInterface):
       import nipype.pipeline.engine as pe
       import nipype.interfaces.freesurfer as fs
       import nipype.interfaces.io as nio
+      
+      bet = pe.MapNode(interface=fsl.BET(), name = 'bet', iterfield=['frac'])
+      bet.inputs.in_file = #define in_file right here
+      bet.inputs.frac = [0.7, 0.5, 0.3]
+      
+      fast = pe.MapNode(interface=fsl.FAST(), name='fast', iterfield=['in_files'])
+      ss = pe.MapNode(interface=fs.SegStats(), name='ss', iterfield=['segmentation_file'])
+      
+      ds = pe.Node(interface=nio.DataSink(), name="ds", iterfield=['in_files'])
+      ds.inputs.base_directory = #define the output here 
+      
+      workflow = pe.Workflow(name='ute_flow')
+      workflow.base_dir = '.'
+      
+      workflow.connect([(bet, fast, [('out_file', 'in_files')]), (fast, ss,[('mixeltype', 'segmentation_file')]), (ss, ds, [('avgwf_file', 'in_files')])]) 
+      
+      workflow.run()
 
-      """print(self.inputs)
-      return runtime""" 
+      """print(self.inputs)""" 
       #this was used for checking if the workflow was being triggered and run
+
+      return runtime 
 
 
     def _get_output_folder(self):
