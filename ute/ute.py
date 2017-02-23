@@ -11,7 +11,6 @@ from ...base import register_workflow, PBRBaseInputSpec, PBRBaseInterface
 
 class UteInputSpec(PBRBaseInputSpec):
     foo = InputMultiPath(File(exists=True))
-    # for now, using flair, but later will switch to UTE
 
 class UteOutputSpec(TraitedSpec):
     pass
