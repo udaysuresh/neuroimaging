@@ -69,3 +69,4 @@ class Ute(PBRBaseInterface):
         return outputs
 
 register_workflow(Ute)
+# always remeber to use 'python setup.py install' after every change iteration
