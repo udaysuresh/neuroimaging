@@ -17,8 +17,6 @@ class UteOutputSpec(TraitedSpec):
     # for now, nothing is output, but later there will be outputs
 
 class Ute(PBRBaseInterface):
-    """
-    """
     input_spec = UteInputSpec
     output_spec = UteOutputSpec #fix
     #stuff AK added to the Nipype stuff
