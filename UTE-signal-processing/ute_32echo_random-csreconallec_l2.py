@@ -21,12 +21,10 @@ print(mat_contents.keys())
 print(mat_contents['TE'])
 print(mat_contents['imallplus'])
 
-
-
-# arrays ={}
-# for a, b in mat_contents.items():
-#         arrays[a] = np.array(b)
-
-
-
+arrays ={}
+for a, b in mat_contents.items():
+    arrays[a] = np.array(b)
 #should give the variables within the file with these keys to access a dict
+
+print(arrays['TE'])
+print(arrays['imallplus'])
