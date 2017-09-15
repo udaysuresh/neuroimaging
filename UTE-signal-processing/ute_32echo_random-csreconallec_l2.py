@@ -11,6 +11,9 @@ import scipy.io as sio
 
 import h5py as hp
 import numpy as np
+import matlab.engine
+
+eng = matlab.engine.start_matlab()
 
 mat_contents = hp.File('ute_32echo_random-csreconallec_l2_r0p01.mat')
 
@@ -28,3 +31,5 @@ for a, b in mat_contents.items():
 
 print(arrays['TE'])
 print(arrays['imallplus'])
+
+brainmask = hp.File('/.brainmask')
