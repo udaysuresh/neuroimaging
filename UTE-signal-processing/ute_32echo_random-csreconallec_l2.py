@@ -33,3 +33,5 @@ print(arrays['TE'])
 print(arrays['imallplus'])
 
 brainmask = hp.File('/.brainmask')
+fitting_mapping = hp.File('/truncated_fitting_mapping.m')
+fit_results = hp.File('fit_results.mat')
