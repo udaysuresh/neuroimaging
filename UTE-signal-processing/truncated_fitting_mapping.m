@@ -1,5 +1,8 @@
 clear all; close all;
 
+%% uses the 'imall' field from the original dataset, though the initial processing is done -> do I need the brainmask processing?
+%% also no support for ifolder once I truncated the script? -> Do I need to manually load? 
+
 %% visualization 
 load(['./fit_results.mat'])
 
