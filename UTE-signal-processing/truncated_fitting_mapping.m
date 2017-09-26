@@ -1,7 +1,7 @@
 clear all; close all;
 
 %% visualization 
-load([foldername{Ifolder} '/fit_results.mat'])
+load(['./fit_results.mat'])
 
 %% estimate bias field, normalized & remove
 imute = imall(:,:,:,1); 
