@@ -11,9 +11,10 @@ import scipy.io as sio
 
 import h5py as hp
 import numpy as np
-import matlab.engine
+# import matlab.engine
+# need to find the proper import for ME, no recognizable input here
 
-eng = matlab.engine.start_matlab()
+# eng = matlab.engine.start_matlab()
 
 mat_contents = hp.File('ute_32echo_random-csreconallec_l2_r0p01.mat')
 
