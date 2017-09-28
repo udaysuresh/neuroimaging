@@ -9,6 +9,10 @@ import scipy.io as sio
 
 ### ^^^ none of this works because matlab 7.3 files can't be opened with scipy
 
+# brainmask = hp.File('/.brainmask')
+# fitting_mapping = hp.File('/truncated_fitting_mapping.m')
+# fit_results = hp.File('fit_results.mat')
+
 import h5py as hp
 import numpy as np
 # import matlab.engine
@@ -33,6 +37,6 @@ for a, b in mat_contents.items():
 print(arrays['TE'])
 print(arrays['imallplus'])
 
-brainmask = hp.File('/.brainmask')
-fitting_mapping = hp.File('/truncated_fitting_mapping.m')
-fit_results = hp.File('fit_results.mat')
+te_array = arrays['TE']
+
+print(te_array.flat[4])
