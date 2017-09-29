@@ -5,6 +5,8 @@ clear all; close all;
 
 %% visualization 
 load(['./fit_results.mat'])
+load(['ute_32echo_random-csreconallec_l2_r0p01.mat'])
+load(['brainmask.mat'])
 
 %% estimate bias field, normalized & remove
 imute = imall(:,:,:,1); 
