@@ -40,3 +40,4 @@ print(arrays['imallplus'])
 te_array = arrays['TE']
 
 print(te_array.flat[4])
+print(np.ravel(te_array))
