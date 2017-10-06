@@ -3,6 +3,8 @@
 
 from nipype.interfaces.dcm2nii import Dcm2nii
 
+### workflow to create: BET -> FAST using FSL corresponding to grey and white matter 
+
 converter = Dcm2nii()
 
 # throw inputs here
