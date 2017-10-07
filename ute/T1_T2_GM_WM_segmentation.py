@@ -19,7 +19,7 @@ ds = pe.Node(interface=nio.DataSink(), name="ds", iterfield=['in_files'])
 ds.inputs.base_directory = '.'
 
 workflow = pe.Workflow(name='T1_T2_Segmentation')
-workflow.base_dir = '.'
+workflow.base_dir = './output'
 
 workflow.connect([(convert, fast, [('converted_files', 'in_files')]), (fast, ds,[('mixeltype', 'in_files')])])
 
