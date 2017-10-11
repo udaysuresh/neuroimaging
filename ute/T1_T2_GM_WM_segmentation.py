@@ -12,6 +12,10 @@ converter.inputs.source_names = ['E5466S1I1.DCM']
 
 convert = pe.MapNode(interface=Dcm2nii(), name='conv', iterfield=['source_names'])
 
+bet = pe.MapNode(interface=fsl.BET(), name = 'bet', iterfield=['frac'])
+
+bet.inputs.frac = [0.8, 0.5, 0.2]
+
 fast = pe.MapNode(interface=fsl.FAST(), name='fast', iterfield=['in_files'])
 
 ds = pe.Node(interface=nio.DataSink(), name="ds", iterfield=['in_files'])
@@ -21,6 +25,6 @@ ds.inputs.base_directory = '.'
 workflow = pe.Workflow(name='T1_T2_Segmentation')
 workflow.base_dir = './output'
 
-workflow.connect([(convert, fast, [('converted_files', 'in_files')]), (fast, ds,[('mixeltype', 'in_files')])])
+workflow.connect([(convert, bet, [('converted_files', 'in_file')]), (bet, fast, ['out_file', 'in_files']), (fast, ds,[('mixeltype', 'in_files')])])
 
 workflow.run()
