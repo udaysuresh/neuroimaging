@@ -1,15 +1,16 @@
 ## trying to take the matlab t1 masking protocol and conv w/ nipype
-## "mask off"
 
 import os
 import nipype.interfaces.fsl as fsl
 import nipype.pipeline.engine as pe
+from nipype.interfaces.dcm2nii import Dcm2nii
 
 
 T1 = "/my/directory/filename.dcm"
 directory = os.path.dirname(file_path)
 
-# TODO: convert dcm to nifti here
+dcm2nii = pe.MapNode(interface=interfaces.dcm2nii(), name = 'dcm2nii')
+dcm2nii.inputs.gzip_output = True
 
 ## T1 masking
 
