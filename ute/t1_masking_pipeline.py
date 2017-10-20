@@ -29,4 +29,8 @@ fast = pe.MapNode(interface=fsl.FAST(), name='fast')
 
 # TODO: register UTE magnitude to T1
 
+# reference uses FSL's FLIRT to register
+
 # TODO: apply to frequency map or chemical shift map
+
+# TODO: ANTS registration
