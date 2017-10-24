@@ -33,4 +33,4 @@ fast = pe.MapNode(interface=fsl.FAST(), name='fast')
 
 # TODO: apply to frequency map or chemical shift map
 
-# TODO: ANTS registration
+# TODO: ANTS registration -> now through the shell script! 
