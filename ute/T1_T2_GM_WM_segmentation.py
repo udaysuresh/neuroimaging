@@ -28,3 +28,12 @@ workflow.base_dir = './output'
 workflow.connect([(convert, bet, [('converted_files', 'in_file')]), (bet, fast, ['out_file', 'in_files']), (fast, ds,[('mixeltype', 'in_files')])])
 
 workflow.run()
+
+
+## scatterplotting
+# voxel wise analysis, might need interpolation
+# grey vs white matter masks
+# regional analysis & atlas
+# write up a few pages on what avenue to follow
+
+## identify one of the strats and follow it, make sure you have enough data and then email peder
