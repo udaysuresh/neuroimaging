@@ -20,8 +20,8 @@ bet.inputs.frac = [0.8, 0.5, 0.2]
 # segmentation
 fast = pe.MapNode(interface=fsl.FAST(), name='fast', iterfield=['in_files'])
 
-# registration (check the input)
-flirt = pe.MapNode(interface=fsl.FLIRT(), name='flirt', iterfield=['in_files'])
+# registration
+flirt = pe.MapNode(interface=fsl.FLIRT(), name='flirt', iterfield=['in_file'])
 
 ds = pe.Node(interface=nio.DataSink(), name="ds", iterfield=['in_files'])
 
@@ -30,7 +30,7 @@ ds.inputs.base_directory = '.'
 workflow = pe.Workflow(name='T1_T2_Segmentation')
 workflow.base_dir = './output'
 
-workflow.connect([(convert, bet, [('converted_files', 'in_file')]), (bet, fast, ['out_file', 'in_files']), (fast, ds,[('mixeltype', 'in_files')])])
+workflow.connect([(convert, bet, [('converted_files', 'in_file')]), (bet, fast, [('out_file', 'in_files')]), (fast, flirt, [('mixeltype', 'in_file')]), (flirt, ds, [('out_file', 'in_files')])])
 
 workflow.run()
 
