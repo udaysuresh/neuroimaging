@@ -12,11 +12,16 @@ converter.inputs.source_names = ['E5466S1I1.DCM']
 
 convert = pe.MapNode(interface=Dcm2nii(), name='conv', iterfield=['source_names'])
 
+# skull stripping
 bet = pe.MapNode(interface=fsl.BET(), name = 'bet', iterfield=['frac'])
 
 bet.inputs.frac = [0.8, 0.5, 0.2]
 
+# segmentation
 fast = pe.MapNode(interface=fsl.FAST(), name='fast', iterfield=['in_files'])
+
+# registration (check the input)
+flirt = pe.MapNode(interface=fsl.FLIRT(), name='flirt', iterfield=['in_files'])
 
 ds = pe.Node(interface=nio.DataSink(), name="ds", iterfield=['in_files'])
 
